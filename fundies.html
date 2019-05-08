@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Keith's Fundies</title>
+<meta property="og:title" content="Keith's Fundies"/>
+<meta property="og:description" content="The best of Keith Hernandez"/>
+<meta property="og:image" content="/web/20180426060437im_/http://keithsfundies.com/keith.jpg"/>
+<style type="text/css">
+
+button {
+    cursor:pointer;
+    padding:5px 15px;
+    background:#004685;
+    border:1px solid #33842a;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0, .75);
+    box-shadow: 0 0 4px rgba(0,0,0, .75);
+    color:#f3f3f3;
+    font-size:0.8em;
+    width:220px;
+}
+
+input:hover, input:focus {
+    background-color :#F7742C;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 1px rgba(0,0,0, .75);
+    box-shadow: 0 0 1px rgba(0,0,0, .75);
+}
+
+table { 
+    border-collapse:separate; border-spacing: 5px; 
+}
+
+.corner {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    text-align: right;
+}
+.lcorn {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    text-align: left;
+}
+
+
+#blanket {
+   background-color:#111;
+   opacity: 0.65;
+   *background:none;
+   position:absolute;
+   z-index: 9001;
+   top:0px;
+   left:0px;
+   width:100%;
+}
+
+#popUpDiv {
+	position:absolute;	
+	border:5px solid #000;
+	z-index: 9002;
+}
+
+#popUpDiv a {
+    position:relative; top:20px; left:20px
+    }
+
+</style>
+
+
+<script type="text/javascript">
+
+function ply(id) {
+	var media = document.getElementsByClassName('media'),
+    i = media.length;
+    while (i--) {
+    	if (media[i].duration > 0) {
+    	media[i].pause();
+		media[i].currentTime = 0;
+		}
+    }
+    
+	document.getElementById("keith" + id).play();
+}
+
+</script>
+</head>
+
+<body>
+    <table style="width:600px" align="center">
+    <tr>
+    <td><audio class="media" id="keith1" preload="none"><source src="MP3s/Are You Kidding Me.mp3" type="audio/mpeg"><source src="MP3s/Are You Kidding Me.ogg" type="audio/ogg"></audio><button onclick="ply(1)">Are You Kidding Me</button> </td>
+    <td><audio class="media" id="keith2" preload="none"><source src="MP3s/Attack Attack Attack.mp3" type="audio/mpeg"><source src="MP3s/Attack Attack Attack.ogg" type="audio/ogg"></audio><button onclick="ply(2)">Attack Attack Attack</button> </td>
+    <td><audio class="media" id="keith3" preload="none"><source src="MP3s/Boo boo.mp3" type="audio/mpeg"><source src="MP3s/Boo boo.ogg" type="audio/ogg"></audio><button onclick="ply(3)">Boo boo</button> </td>
+    <td><audio class="media" id="keith4" preload="none"><source src="MP3s/Can't Do Anything Right.mp3" type="audio/mpeg"><source src="MP3s/Can't Do Anything Right.ogg" type="audio/ogg"></audio><button onclick="ply(4)">Can't Do Anything Right</button> </td>
+    </tr><tr><td><audio class="media" id="keith5" preload="none"><source src="MP3s/Chill Pill.mp3" type="audio/mpeg"><source src="MP3s/Chill Pill.ogg" type="audio/ogg"></audio><button onclick="ply(5)">Chill Pill</button> </td>
+    <td><audio class="media" id="keith6" preload="none"><source src="MP3s/Cuppy.mp3" type="audio/mpeg"><source src="MP3s/Cuppy.ogg" type="audio/ogg"></audio><button onclick="ply(6)">Cuppy</button> </td>
+    <td><audio class="media" id="keith7" preload="none"><source src="MP3s/Dork With A RBI Steak.mp3" type="audio/mpeg"><source src="MP3s/Dork With A RBI Steak.ogg" type="audio/ogg"></audio><button onclick="ply(7)">Dork With A RBI Steak</button> </td>
+    <td><audio class="media" id="keith8" preload="none"><source src="MP3s/Duck.mp3" type="audio/mpeg"><source src="MP3s/Duck.ogg" type="audio/ogg"></audio><button onclick="ply(8)">Duck</button> </td>
+    </tr><tr><td><audio class="media" id="keith9" preload="none"><source src="MP3s/El Hamo.mp3" type="audio/mpeg"><source src="MP3s/El Hamo.ogg" type="audio/ogg"></audio><button onclick="ply(9)">El Hamo</button> </td>
+    <td><audio class="media" id="keith10" preload="none"><source src="MP3s/Flying That Shoulder Out.mp3" type="audio/mpeg"><source src="MP3s/Flying That Shoulder Out.ogg" type="audio/ogg"></audio><button onclick="ply(10)">Flying That Shoulder Out</button> </td>
+    <td><audio class="media" id="keith11" preload="none"><source src="MP3s/Frisky.mp3" type="audio/mpeg"><source src="MP3s/Frisky.ogg" type="audio/ogg"></audio><button onclick="ply(11)">Frisky</button> </td>
+    <td><audio class="media" id="keith12" preload="none"><source src="MP3s/Fundies.mp3" type="audio/mpeg"><source src="MP3s/Fundies.ogg" type="audio/ogg"></audio><button onclick="ply(12)">Fundies</button> </td>
+    </tr><tr><td><audio class="media" id="keith13" preload="none"><source src="MP3s/Gare Pay Attention.mp3" type="audio/mpeg"><source src="MP3s/Gare Pay Attention.ogg" type="audio/ogg"></audio><button onclick="ply(13)">Gare Pay Attention</button> </td>
+    <td><audio class="media" id="keith14" preload="none"><source src="MP3s/Gary Calm Down.mp3" type="audio/mpeg"><source src="MP3s/Gary Calm Down.ogg" type="audio/ogg"></audio><button onclick="ply(14)">Gary Calm Down</button> </td>
+    <td><audio class="media" id="keith15" preload="none"><source src="MP3s/Get a Bottle of Rolaids.mp3" type="audio/mpeg"><source src="MP3s/Get a Bottle of Rolaids.ogg" type="audio/ogg"></audio><button onclick="ply(15)">Get a Bottle of Rolaids</button> </td>
+    <td><audio class="media" id="keith16" preload="none"><source src="MP3s/Go Whaling.mp3" type="audio/mpeg"><source src="MP3s/Go Whaling.ogg" type="audio/ogg"></audio><button onclick="ply(16)">Go Whaling</button> </td>
+    </tr><tr><td><audio class="media" id="keith17" preload="none"><source src="MP3s/Gotta Run.mp3" type="audio/mpeg"><source src="MP3s/Gotta Run.ogg" type="audio/ogg"></audio><button onclick="ply(17)">Gotta Run</button> </td>
+    <td><audio class="media" id="keith18" preload="none"><source src="MP3s/HEY.mp3" type="audio/mpeg"><source src="MP3s/HEY.ogg" type="audio/ogg"></audio><button onclick="ply(18)">HEY</button> </td>
+    <td><audio class="media" id="keith19" preload="none"><source src="MP3s/I Did a Boo Boo.mp3" type="audio/mpeg"><source src="MP3s/I Did a Boo Boo.ogg" type="audio/ogg"></audio><button onclick="ply(19)">I Did a Boo Boo</button> </td>
+    <td><audio class="media" id="keith20" preload="none"><source src="MP3s/I'm Gonna Have To Reload.mp3" type="audio/mpeg"><source src="MP3s/I'm Gonna Have To Reload.ogg" type="audio/ogg"></audio><button onclick="ply(20)">I'm Gonna Have To Reload</button> </td>
+    </tr><tr><td><audio class="media" id="keith21" preload="none"><source src="MP3s/I'm Sipping.mp3" type="audio/mpeg"><source src="MP3s/I'm Sipping.ogg" type="audio/ogg"></audio><button onclick="ply(21)">I'm Sipping</button> </td>
+    <td><audio class="media" id="keith22" preload="none"><source src="MP3s/Jeez.mp3" type="audio/mpeg"><source src="MP3s/Jeez.ogg" type="audio/ogg"></audio><button onclick="ply(22)">Jeez</button> </td>
+    <td><audio class="media" id="keith23" preload="none"><source src="MP3s/Job For Men.mp3" type="audio/mpeg"><source src="MP3s/Job For Men.ogg" type="audio/ogg"></audio><button onclick="ply(23)">Job For Men</button> </td>
+    <td><audio class="media" id="keith24" preload="none"><source src="MP3s/Joey Joey.mp3" type="audio/mpeg"><source src="MP3s/Joey Joey.ogg" type="audio/ogg"></audio><button onclick="ply(24)">Joey Joey</button> </td>
+    </tr><tr><td><audio class="media" id="keith25" preload="none"><source src="MP3s/Just Messin' around here.mp3" type="audio/mpeg"><source src="MP3s/Just Messin' around here.ogg" type="audio/ogg"></audio><button onclick="ply(25)">Just Messin' around here</button> </td>
+    <td><audio class="media" id="keith26" preload="none"><source src="MP3s/Kids at home.mp3" type="audio/mpeg"><source src="MP3s/Kids at home.ogg" type="audio/ogg"></audio><button onclick="ply(26)">Kids at home</button> </td>
+    <td><audio class="media" id="keith27" preload="none"><source src="MP3s/Lucas.mp3" type="audio/mpeg"><source src="MP3s/Lucas.ogg" type="audio/ogg"></audio><button onclick="ply(27)">Lucas</button> </td>
+    <td><audio class="media" id="keith28" preload="none"><source src="MP3s/Make My Day.mp3" type="audio/mpeg"><source src="MP3s/Make My Day.ogg" type="audio/ogg"></audio><button onclick="ply(28)">Make My Day</button> </td>
+    </tr><tr><td><audio class="media" id="keith29" preload="none"><source src="MP3s/Mmmmmm Ooooooh.mp3" type="audio/mpeg"><source src="MP3s/Mmmmmm Ooooooh.ogg" type="audio/ogg"></audio><button onclick="ply(29)">Mmmmmm Ooooooh</button> </td>
+    <td><audio class="media" id="keith30" preload="none"><source src="MP3s/Moan 2.mp3" type="audio/mpeg"><source src="MP3s/Moan 2.ogg" type="audio/ogg"></audio><button onclick="ply(30)">Moan 2</button> </td>
+    <td><audio class="media" id="keith31" preload="none"><source src="MP3s/Moan.mp3" type="audio/mpeg"><source src="MP3s/Moan.ogg" type="audio/ogg"></audio><button onclick="ply(31)">Moan</button> </td>
+    <td><audio class="media" id="keith32" preload="none"><source src="MP3s/Nice Got Down On One Knee.mp3" type="audio/mpeg"><source src="MP3s/Nice Got Down On One Knee.ogg" type="audio/ogg"></audio><button onclick="ply(32)">Nice Got Down On One Knee</button> </td>
+    </tr><tr><td><audio class="media" id="keith33" preload="none"><source src="MP3s/No Way Jose.mp3" type="audio/mpeg"><source src="MP3s/No Way Jose.ogg" type="audio/ogg"></audio><button onclick="ply(33)">No Way Jose</button> </td>
+    <td><audio class="media" id="keith34" preload="none"><source src="MP3s/Nope You Can't Do That.mp3" type="audio/mpeg"><source src="MP3s/Nope You Can't Do That.ogg" type="audio/ogg"></audio><button onclick="ply(34)">Nope You Can't Do That</button> </td>
+    <td><audio class="media" id="keith35" preload="none"><source src="MP3s/OH.mp3" type="audio/mpeg"><source src="MP3s/OH.ogg" type="audio/ogg"></audio><button onclick="ply(35)">OH</button> </td>
+    <td><audio class="media" id="keith36" preload="none"><source src="MP3s/Off Day.mp3" type="audio/mpeg"><source src="MP3s/Off Day.ogg" type="audio/ogg"></audio><button onclick="ply(36)">Off Day</button> </td>
+    </tr><tr><td><audio class="media" id="keith37" preload="none"><source src="MP3s/Oh Boy.mp3" type="audio/mpeg"><source src="MP3s/Oh Boy.ogg" type="audio/ogg"></audio><button onclick="ply(37)">Oh Boy</button> </td>
+    <td><audio class="media" id="keith38" preload="none"><source src="MP3s/Oh My God.mp3" type="audio/mpeg"><source src="MP3s/Oh My God.ogg" type="audio/ogg"></audio><button onclick="ply(38)">Oh My God</button> </td>
+    <td><audio class="media" id="keith39" preload="none"><source src="MP3s/Oh My Word.mp3" type="audio/mpeg"><source src="MP3s/Oh My Word.ogg" type="audio/ogg"></audio><button onclick="ply(39)">Oh My Word</button> </td>
+    <td><audio class="media" id="keith40" preload="none"><source src="MP3s/Oooh David Got Knocked.mp3" type="audio/mpeg"><source src="MP3s/Oooh David Got Knocked.ogg" type="audio/ogg"></audio><button onclick="ply(40)">Oooh David Got Knocked</button> </td>
+    </tr><tr><td><audio class="media" id="keith41" preload="none"><source src="MP3s/Ooooh A Little Sinker.mp3" type="audio/mpeg"><source src="MP3s/Ooooh A Little Sinker.ogg" type="audio/ogg"></audio><button onclick="ply(41)">Ooooh A Little Sinker</button> </td>
+    <td><audio class="media" id="keith42" preload="none"><source src="MP3s/Ooooh David Got Knocked.mp3" type="audio/mpeg"><source src="MP3s/Ooooh David Got Knocked.ogg" type="audio/ogg"></audio><button onclick="ply(42)">Ooooh David Got Knocked</button> </td>
+    <td><audio class="media" id="keith43" preload="none"><source src="MP3s/Police Escort.mp3" type="audio/mpeg"><source src="MP3s/Police Escort.ogg" type="audio/ogg"></audio><button onclick="ply(43)">Police Escort</button> </td>
+    <td><audio class="media" id="keith44" preload="none"><source src="MP3s/Put a tent over that circus.mp3" type="audio/mpeg"><source src="MP3s/Put a tent over that circus.ogg" type="audio/ogg"></audio><button onclick="ply(44)">Put a tent over that circus</button> </td>
+    </tr><tr><td><audio class="media" id="keith45" preload="none"><source src="MP3s/Right On Bro 0NEW.mp3" type="audio/mpeg"><source src="MP3s/Right On Bro 0NEW.ogg" type="audio/ogg"></audio><button onclick="ply(45)">Right On Bro </button> </td>
+    <td><audio class="media" id="keith46" preload="none"><source src="MP3s/Satin's Eyebrows.mp3" type="audio/mpeg"><source src="MP3s/Satin's Eyebrows.ogg" type="audio/ogg"></audio><button onclick="ply(46)">Satin's Eyebrows</button> </td>
+    <td><audio class="media" id="keith47" preload="none"><source src="MP3s/Should Be Ball 5.mp3" type="audio/mpeg"><source src="MP3s/Should Be Ball 5.ogg" type="audio/ogg"></audio><button onclick="ply(47)">Should Be Ball 5</button> </td>
+    <td><audio class="media" id="keith48" preload="none"><source src="MP3s/Show Me Something.mp3" type="audio/mpeg"><source src="MP3s/Show Me Something.ogg" type="audio/ogg"></audio><button onclick="ply(48)">Show Me Something</button> </td>
+    </tr><tr><td><audio class="media" id="keith49" preload="none"><source src="MP3s/Spongy.mp3" type="audio/mpeg"><source src="MP3s/Spongy.ogg" type="audio/ogg"></audio><button onclick="ply(49)">Spongy</button> </td>
+    <td><audio class="media" id="keith50" preload="none"><source src="MP3s/Terrible.mp3" type="audio/mpeg"><source src="MP3s/Terrible.ogg" type="audio/ogg"></audio><button onclick="ply(50)">Terrible</button> </td>
+    <td><audio class="media" id="keith51" preload="none"><source src="MP3s/That's Why You're Out.mp3" type="audio/mpeg"><source src="MP3s/That's Why You're Out.ogg" type="audio/ogg"></audio><button onclick="ply(51)">That's Why You're Out</button> </td>
+    <td><audio class="media" id="keith52" preload="none"><source src="MP3s/The Horses Are Out Of The Barn.mp3" type="audio/mpeg"><source src="MP3s/The Horses Are Out Of The Barn.ogg" type="audio/ogg"></audio><button onclick="ply(52)">The Horses Are Out Of The Barn</button> </td>
+    </tr><tr><td><audio class="media" id="keith53" preload="none"><source src="MP3s/This Is War Out Here.mp3" type="audio/mpeg"><source src="MP3s/This Is War Out Here.ogg" type="audio/ogg"></audio><button onclick="ply(53)">This Is War Out Here</button> </td>
+    <td><audio class="media" id="keith54" preload="none"><source src="MP3s/This Is War.mp3" type="audio/mpeg"><source src="MP3s/This Is War.ogg" type="audio/ogg"></audio><button onclick="ply(54)">This Is War</button> </td>
+    <td><audio class="media" id="keith55" preload="none"><source src="MP3s/Toilet Slide.mp3" type="audio/mpeg"><source src="MP3s/Toilet Slide.ogg" type="audio/ogg"></audio><button onclick="ply(55)">Toilet Slide</button> </td>
+    <td><audio class="media" id="keith56" preload="none"><source src="MP3s/Very Overweight.mp3" type="audio/mpeg"><source src="MP3s/Very Overweight.ogg" type="audio/ogg"></audio><button onclick="ply(56)">Very Overweight</button> </td>
+    </tr><tr><td><audio class="media" id="keith57" preload="none"><source src="MP3s/Very Sneaky Mr. Nickeas.mp3" type="audio/mpeg"><source src="MP3s/Very Sneaky Mr. Nickeas.ogg" type="audio/ogg"></audio><button onclick="ply(57)">Very Sneaky Mr. Nickeas</button> </td>
+    <td><audio class="media" id="keith58" preload="none"><source src="MP3s/Way to Say It Mex.mp3" type="audio/mpeg"><source src="MP3s/Way to Say It Mex.ogg" type="audio/ogg"></audio><button onclick="ply(58)">Way to Say It Mex</button> </td>
+    <td><audio class="media" id="keith59" preload="none"><source src="MP3s/What A Rockhead.mp3" type="audio/mpeg"><source src="MP3s/What A Rockhead.ogg" type="audio/ogg"></audio><button onclick="ply(59)">What A Rockhead</button> </td>
+    <td><audio class="media" id="keith60" preload="none"><source src="MP3s/What Is He Doing.mp3" type="audio/mpeg"><source src="MP3s/What Is He Doing.ogg" type="audio/ogg"></audio><button onclick="ply(60)">What Is He Doing</button> </td>
+    </tr><tr><td><audio class="media" id="keith61" preload="none"><source src="MP3s/You Doing Alright.mp3" type="audio/mpeg"><source src="MP3s/You Doing Alright.ogg" type="audio/ogg"></audio><button onclick="ply(61)">You Doing Alright</button> </td>
+    <td><audio class="media" id="keith62" preload="none"><source src="MP3s/You Look Good.mp3" type="audio/mpeg"><source src="MP3s/You Look Good.ogg" type="audio/ogg"></audio><button onclick="ply(62)">You Look Good</button> </td>
+    <td><audio class="media" id="keith63" preload="none"><source src="MP3s/You Make Me Nervous.mp3" type="audio/mpeg"><source src="MP3s/You Make Me Nervous.ogg" type="audio/ogg"></audio><button onclick="ply(63)">You Make Me Nervous</button> </td>
+    <td><audio class="media" id="keith64" preload="none"><source src="MP3s/Yup Thats Frustrating.mp3" type="audio/mpeg"><source src="MP3s/Yup Thats Frustrating.ogg" type="audio/ogg"></audio><button onclick="ply(64)">Yup Thats Frustrating</button> </td>
+    </tr>
+</table>
+</body>
+
+</html>
