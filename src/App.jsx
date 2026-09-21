@@ -109,6 +109,39 @@ function StatusDot({ kind }) {
   return <span className={`dot ${kind}`} aria-hidden="true" />;
 }
 
+// March 1, 1995 at 04:00 Eastern Standard Time; fixed for every visitor.
+const BOOT_TIME = Date.parse("1995-03-01T04:00:00-05:00");
+
+function Uptime() {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const interval = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const elapsed = Math.max(0, Math.floor((now - BOOT_TIME) / 1000));
+  const days = Math.floor(elapsed / 86400).toLocaleString("en-US");
+  const hours = String(Math.floor(elapsed / 3600) % 24).padStart(2, "0");
+  const minutes = String(Math.floor(elapsed / 60) % 60).padStart(2, "0");
+  const seconds = String(elapsed % 60).padStart(2, "0");
+
+  return (
+    <div className="uptime" aria-label="Personal system uptime">
+      <div className="uptime-heading">
+        <span>PERSON UPTIME</span>
+        <span className="uptime-online"><StatusDot kind="operational" />ONLINE</span>
+      </div>
+      <div className="uptime-counter" role="timer" aria-live="off"
+        aria-label={`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}>
+        {days}<span>d</span> {hours}<span>h</span> {minutes}<span>m</span> {seconds}<span>s</span>
+      </div>
+      <div className="uptime-bar" aria-hidden="true" />
+      <div className="uptime-boot">BOOT <time dateTime="1995-03-01T04:00:00-05:00">1995-03-01 / 04:00 EST</time></div>
+    </div>
+  );
+}
+
 function Badge({ kind }) {
   const label = kind === "operational" ? "Operational" : "Provisioning";
   return (
@@ -289,7 +322,7 @@ export default function App() {
 
       <footer className="footer">
         <span className="muted">© {year} Roger Rosenquist</span>
-        <span className="muted mono">uptime: continuous since 1995</span>
+        <Uptime />
       </footer>
     </div>
   );
@@ -507,9 +540,31 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
 .footer {
   max-width: var(--max); margin: 0 auto; padding: 26px 24px;
   border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
   font-size: 0.88rem;
 }
+.uptime {
+  width: 360px; max-width: 100%; padding: 16px 18px;
+  background: var(--bg-raise); border: 1px solid var(--line); border-radius: 8px;
+  font-family: var(--mono);
+}
+.uptime-heading {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted);
+}
+.uptime-online { display: inline-flex; align-items: center; gap: 7px; color: var(--green); }
+.uptime-counter {
+  margin: 9px 0 12px; color: var(--text); font-size: clamp(1rem, 4vw, 1.25rem);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.uptime-counter span { color: var(--muted); font-size: 0.75rem; }
+.uptime-bar {
+  height: 12px; border-radius: 2px;
+  background: repeating-linear-gradient(to right, var(--green) 0, var(--green) 5px, transparent 5px, transparent 8px);
+  opacity: 0.8;
+}
+.uptime-boot { margin-top: 9px; color: var(--muted); font-size: 0.62rem; }
+@media (max-width: 580px) { .uptime { width: 100%; } }
 
 /* ---------- reveal ---------- */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
