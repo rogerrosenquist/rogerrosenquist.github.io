@@ -399,7 +399,14 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
   border: 1px solid rgba(74, 222, 128, 0.35);
   border-radius: 999px; padding: 5px 14px;
 }
-@media (max-width: 640px) { .logo-path { display: none; } .nav-links { gap: 14px; } }
+@media (max-width: 640px) {
+  .logo-path { display: none; }
+  .nav { flex-wrap: wrap; gap: 12px; }
+  .nav-links { flex-wrap: wrap; gap: 10px 14px; min-width: 0; }
+}
+@media (max-width: 480px) {
+  .nav-links { width: 100%; }
+}
 
 /* ---------- hero ---------- */
 .hero {
@@ -449,7 +456,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
 }
 .badge.operational { color: var(--green); background: var(--green-dim); }
 .badge.provisioning { color: var(--amber); background: var(--amber-dim); }
-.dot { width: 7px; height: 7px; border-radius: 50%; }
+.dot { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; }
 .dot.operational { background: var(--green); animation: pulse 2.4s ease-in-out infinite; }
 .dot.provisioning { background: var(--amber); animation: pulse 1.4s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: 0.35; } }
@@ -468,18 +475,21 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
 @media (max-width: 720px) { .about-grid { grid-template-columns: 1fr; } }
 
 /* ---------- cards / board ---------- */
-.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 900px) { .board { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 580px) { .board { grid-template-columns: 1fr; } }
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.board > .reveal { min-width: 0; }
+@media (max-width: 900px) { .board { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 580px) { .board { grid-template-columns: minmax(0, 1fr); } }
 
 .card {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 12px; padding: 22px;
   transition: border-color 0.15s, transform 0.15s;
   height: 100%;
+  overflow-wrap: anywhere;
 }
 .card:hover { border-color: #3a4c5f; transform: translateY(-2px); }
-.skill-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; margin-bottom: 10px; }
+.skill-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.skill-top .badge { flex-shrink: 0; }
 .card h3 { font-size: 1.02rem; font-weight: 600; }
 .card .muted { font-size: 0.92rem; }
 .project .tag {
@@ -492,7 +502,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
 /* ---------- rack ---------- */
 .rack { display: flex; flex-direction: column; gap: 14px; }
 .unit {
-  display: grid; grid-template-columns: 44px 1fr 44px;
+  display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px;
   background: var(--bg-raise); border: 1px solid var(--line); border-radius: 10px;
   overflow: hidden;
 }
@@ -510,7 +520,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
   font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
   writing-mode: vertical-rl; letter-spacing: 0.15em;
 }
-.unit-body { padding: 22px 26px; }
+.unit-body { min-width: 0; padding: 22px 26px; overflow-wrap: anywhere; }
 .unit-head { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; flex-wrap: wrap; }
 .unit-head h3 { font-size: 1.15rem; }
 .period { font-family: var(--mono); font-size: 0.78rem; color: var(--amber); }
@@ -519,7 +529,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
 .unit li { color: var(--muted); font-size: 0.95rem; padding-left: 18px; position: relative; }
 .unit li::before { content: '>'; position: absolute; left: 0; color: var(--green); font-family: var(--mono); }
 @media (max-width: 580px) {
-  .unit { grid-template-columns: 30px 1fr 30px; }
+  .unit { grid-template-columns: 30px minmax(0, 1fr) 30px; }
   .unit-body { padding: 18px; }
 }
 
@@ -528,6 +538,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
 .contact .eyebrow { margin-bottom: 12px; }
 .email {
   display: inline-block; font-family: var(--display);
+  max-width: 100%; overflow-wrap: anywhere;
   font-size: clamp(1.3rem, 4.5vw, 2.1rem); font-weight: 500;
   color: var(--text); margin: 6px 0 30px;
   border-bottom: 2px solid var(--green);
