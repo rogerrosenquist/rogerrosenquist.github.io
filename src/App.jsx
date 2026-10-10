@@ -14,7 +14,7 @@ const SKILLS = [
   { name: "React", detail: "This site, component-driven UI", status: "operational" },
   { name: "IT Operations", detail: "Tier 1 support, imaging, inventory", status: "operational" },
   { name: "Networking & Hardware", detail: "Deployment, troubleshooting, AV", status: "operational" },
-  { name: "AWS", detail: "Certification in progress", status: "provisioning" },
+  { name: "AWS", detail: "Deployed serverless app; Solutions Architect Associate prep", status: "provisioning" },
 ];
 
 const EXPERIENCE = [
@@ -52,14 +52,20 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
+    name: "Serverless Job Application Tracker",
+    detail: "A job application tracker with Cognito sign-in and a protected API. Four Python Lambda functions create, list, update, and delete applications in DynamoDB; CloudFront serves the frontend from a private S3 bucket.",
+    tag: "aws · deployed",
+    featured: true,
+    image: "/images/job-tracker-dashboard.png",
+    imageAlt: "Deployed job application tracker with an add form and four fictional applications in Applied, Interviewing, and Offer statuses",
+    stack: "Python · JavaScript · Lambda · API Gateway · DynamoDB · Cognito · S3 · CloudFront",
+    codeUrl: "https://github.com/rogerrosenquist/aws-job-application-tracker",
+    liveUrl: "https://d3vx7zv7kgrlly.cloudfront.net/",
+  },
+  {
     name: "Portfolio v2",
     detail: "This site. A single React component with no UI framework, deployed on GitHub Pages.",
     tag: "react",
-  },
-  {
-    name: "AWS Lab Notes",
-    detail: "Hands-on builds and notes from certification prep. Coming online as the cert wraps up.",
-    tag: "cloud",
   },
   {
     name: "Front-End Builds",
@@ -293,14 +299,29 @@ export default function App() {
             <p className="eyebrow">// deployments</p>
             <h2>Projects</h2>
           </Reveal>
-          <div className="board">
+          <div className="board project-board">
             {PROJECTS.map((p, i) => (
               <Reveal key={p.name} delay={i * 60}>
-                <div className="card project">
-                  <span className="tag">{p.tag}</span>
-                  <h3>{p.name}</h3>
-                  <p className="muted">{p.detail}</p>
-                </div>
+                <article className={`card project ${p.featured ? "project-featured" : ""}`}>
+                  {p.image && (
+                    <a className="project-preview" href={`${p.codeUrl}#dashboard-preview`} target="_blank" rel="noreferrer"
+                      aria-label={`View ${p.name} screenshot on GitHub`}>
+                      <img src={p.image} alt={p.imageAlt} width="2560" height="1426" loading="lazy" />
+                    </a>
+                  )}
+                  <div className="project-content">
+                    <span className="tag">{p.tag}</span>
+                    <h3>{p.name}</h3>
+                    <p className="muted">{p.detail}</p>
+                    {p.stack && <p className="project-stack">{p.stack}</p>}
+                    {p.codeUrl && (
+                      <div className="project-actions">
+                        <a className="btn primary" href={p.codeUrl} target="_blank" rel="noreferrer">View code</a>
+                        <a className="btn" href={p.liveUrl} target="_blank" rel="noreferrer">Live app — sign-in required</a>
+                      </div>
+                    )}
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
@@ -498,6 +519,30 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.01em; }
   display: inline-block; margin-bottom: 14px;
 }
 .project h3 { margin-bottom: 8px; }
+.project-board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.project-board > .reveal:first-child { grid-column: 1 / -1; }
+.project-featured {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center; gap: 28px; padding: 28px;
+}
+.project-featured .tag { color: var(--green); border-color: rgba(74, 222, 128, 0.35); }
+.project-featured h3 { font-size: 1.45rem; line-height: 1.25; }
+.project-preview {
+  display: block; min-width: 0; border: 1px solid var(--line);
+  border-radius: 8px; overflow: hidden; background: #181a1b;
+}
+.project-preview img { display: block; width: 100%; height: auto; }
+.project-content { min-width: 0; }
+.project-stack {
+  margin-top: 16px; color: var(--muted); font-family: var(--mono);
+  font-size: 0.73rem; line-height: 1.8;
+}
+.project-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.project-actions .btn { font-size: 0.78rem; padding: 9px 14px; }
+@media (max-width: 720px) {
+  .project-featured { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 22px; }
+}
+@media (max-width: 580px) { .project-board { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- rack ---------- */
 .rack { display: flex; flex-direction: column; gap: 14px; }
