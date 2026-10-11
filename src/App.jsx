@@ -75,6 +75,7 @@ const PROJECTS = [
 ];
 
 const LINKS = {
+  resume: "/Roger_Rosenquist_Resume.pdf",
   email: "rosenquist.roger@gmail.com",
   github: "https://github.com/rogerrosenquist",
   linkedin: "https://www.linkedin.com/in/roger-rosenquist-8b867357",
@@ -204,7 +205,8 @@ export default function App() {
             <span className="hero-loc">Open to cloud and platform roles</span>
           </div>
           <div className="hero-actions">
-            <a className="btn primary" href="#experience">View experience</a>
+            <a className="btn primary" href={LINKS.resume} download="Roger_Rosenquist_Resume.pdf">Download résumé (PDF)</a>
+            <a className="btn" href="#experience">View experience</a>
             <a className="btn" href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </section>
@@ -334,6 +336,7 @@ export default function App() {
             <h2>Get in touch</h2>
             <a className="email" href={`mailto:${LINKS.email}`}>{LINKS.email}</a>
             <div className="socials">
+              <a className="btn" href={LINKS.resume} download="Roger_Rosenquist_Resume.pdf">Download résumé (PDF)</a>
               <a className="btn" href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a>
               <a className="btn" href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
