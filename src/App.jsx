@@ -56,8 +56,8 @@ const PROJECTS = [
     detail: "A job application tracker with Cognito sign-in and a protected API. Four Python Lambda functions create, list, update, and delete applications in DynamoDB; CloudFront serves the frontend from a private S3 bucket.",
     tag: "aws · deployed",
     featured: true,
-    image: "/images/job-tracker-dashboard.png",
-    imageAlt: "Deployed job application tracker with an add form and four fictional applications in Applied, Interviewing, and Offer statuses",
+    image: "/images/job-tracker-dashboard.jpg",
+    imageAlt: "Dashboard preview with fictional applications, colored status totals, search, filters, and sorting",
     stack: "Python · JavaScript · Lambda · API Gateway · DynamoDB · Cognito · S3 · CloudFront",
     codeUrl: "https://github.com/rogerrosenquist/aws-job-application-tracker",
     liveUrl: "https://d3vx7zv7kgrlly.cloudfront.net/",
@@ -306,7 +306,7 @@ export default function App() {
                   {p.image && (
                     <a className="project-preview" href={`${p.codeUrl}#dashboard-preview`} target="_blank" rel="noreferrer"
                       aria-label={`View ${p.name} screenshot on GitHub`}>
-                      <img src={p.image} alt={p.imageAlt} width="2560" height="1426" loading="lazy" />
+                      <img src={p.image} alt={p.imageAlt} width="1424" height="1503" loading="lazy" />
                     </a>
                   )}
                   <div className="project-content">
